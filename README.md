@@ -9,6 +9,7 @@ The goal of this algorithm is to detect moving targets from a moving platform. W
 		<br> b. To register frames using GPS/IMU data we register frame X to Y using the Direction Cosine Matrices by going from Frame X -> Frame X Local Level -> ECEF-> Frame Y Local Level -> Frame Y. 
 2. Process the stack of registered image frames using the RX algorithm.
 		<br> a. See [here for original RX implementation](https://www.umbc.edu/rssipl/pdf/TGRS/tgrs.anomaly/40tgrs06-chang-proof.pdf) and [my paper here for a short description](https://ieeexplore.ieee.org/document/9506700) of how the RX algorithm works <br>
+		     b. The algorithm can be found under ARX.py as the function arx.
 3. We identify moving objects as anomalies found by the response of the RX algorithm. This is done by:
 		<br> a. Compute the cumulative probability distribution of RX score values
 		<br> b. Set the confidence coefficient value to 0.995
