@@ -5,7 +5,8 @@ Moving Target Indicator
 The goal of this algorithm is to detect moving targets from a moving platform. We repurpose the Reed-Xiaoli (RX) anomaly detection algorithm to identify moving objects within a stack of frames. It works as follows:
 
 1. Given N number of frames & GPS/IMU data we register each frame to the middle frame. 
-		<br> a. TODO: Currently the implementation uses feature based registration <br>
+		<br> a. TODO: Currently the implementation uses feature based registration
+		<br> b. To register frames using GPS/IMU data we register frame X to Y using the Direction Cosine Matrices by going from Frame X -> Frame X Local Level -> ECEF-> Frame Y Local Level -> Frame Y. 
 2. Process the stack of registered image frames using the RX algorithm.
 		<br> a. See [here for original RX implementation](https://www.umbc.edu/rssipl/pdf/TGRS/tgrs.anomaly/40tgrs06-chang-proof.pdf) and [my paper here for a short description](https://ieeexplore.ieee.org/document/9506700) of how the RX algorithm works <br>
 3. We identify moving objects as anomalies found by the response of the RX algorithm. This is done by:
